@@ -1,0 +1,576 @@
+[
+    {
+        "id": "b24e35e9ba78cd50",
+        "type": "tab",
+        "label": "Project_sample",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ce49ce220e66e428",
+        "type": "ui_led",
+        "z": "b24e35e9ba78cd50",
+        "order": 3,
+        "group": "d016c9a6a6ddfebd",
+        "width": 0,
+        "height": 0,
+        "label": "LED1 상태",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#000a00",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "LED1",
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "241573aa608c2109",
+        "type": "mqtt in",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/LED1Status",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "3886e8e120c6524f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "ce49ce220e66e428"
+            ]
+        ]
+    },
+    {
+        "id": "880bfc04e7631f84",
+        "type": "ui_text",
+        "z": "b24e35e9ba78cd50",
+        "group": "d016c9a6a6ddfebd",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "DHT 센서 상태",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 480,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "050def0cf61b5c2b",
+        "type": "mqtt in",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/DHTStatus",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "3886e8e120c6524f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 80,
+        "wires": [
+            [
+                "880bfc04e7631f84"
+            ]
+        ]
+    },
+    {
+        "id": "464d59e616547744",
+        "type": "ui_button",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "group": "345bee42ad8f58a0",
+        "order": 2,
+        "width": "2",
+        "height": "2",
+        "passthru": false,
+        "label": "LED1 On",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "f3574e71ed6473f3"
+            ]
+        ]
+    },
+    {
+        "id": "a44ff777d56c7f58",
+        "type": "ui_button",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "group": "345bee42ad8f58a0",
+        "order": 3,
+        "width": "2",
+        "height": "2",
+        "passthru": false,
+        "label": "LED1 Off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "f3574e71ed6473f3"
+            ]
+        ]
+    },
+    {
+        "id": "f3574e71ed6473f3",
+        "type": "mqtt out",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/LED1",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3886e8e120c6524f",
+        "x": 450,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ea5cfc759f6f3518",
+        "type": "mqtt in",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/humidity",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "3886e8e120c6524f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 600,
+        "wires": [
+            [
+                "1b45725b8694555b"
+            ]
+        ]
+    },
+    {
+        "id": "1b45725b8694555b",
+        "type": "ui_chart",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "group": "766114f073e611c5",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "온습도",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "20",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#f41101",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 450,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a660cb4a23957d75",
+        "type": "mqtt in",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/temperature",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "3886e8e120c6524f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 540,
+        "wires": [
+            [
+                "1b45725b8694555b"
+            ]
+        ]
+    },
+    {
+        "id": "6958f778149e7058",
+        "type": "ui_button",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "group": "345bee42ad8f58a0",
+        "order": 2,
+        "width": "2",
+        "height": "2",
+        "passthru": false,
+        "label": "LED2 On",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 380,
+        "wires": [
+            [
+                "500ff8bea186b0cc"
+            ]
+        ]
+    },
+    {
+        "id": "f943e6c1073de948",
+        "type": "ui_button",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "group": "345bee42ad8f58a0",
+        "order": 3,
+        "width": "2",
+        "height": "2",
+        "passthru": false,
+        "label": "LED2 Off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 420,
+        "wires": [
+            [
+                "500ff8bea186b0cc"
+            ]
+        ]
+    },
+    {
+        "id": "500ff8bea186b0cc",
+        "type": "mqtt out",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/LED2",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3886e8e120c6524f",
+        "x": 450,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b70e794b9d490b4d",
+        "type": "ui_led",
+        "z": "b24e35e9ba78cd50",
+        "order": 3,
+        "group": "d016c9a6a6ddfebd",
+        "width": 0,
+        "height": 0,
+        "label": "LED2 상태",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#000a00",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "LED2",
+        "x": 450,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2701690252c1f8be",
+        "type": "mqtt in",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/LED2Status",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "3886e8e120c6524f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 180,
+        "wires": [
+            [
+                "b70e794b9d490b4d"
+            ]
+        ]
+    },
+    {
+        "id": "c08238541516c38a",
+        "type": "mqtt out",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/TempSet",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3886e8e120c6524f",
+        "x": 440,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ad05e03f85e8e604",
+        "type": "mqtt out",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "topic": "200108001/HumidSet",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3886e8e120c6524f",
+        "x": 440,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "19556dc8b26c1c36",
+        "type": "ui_text_input",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "label": "습도 설정",
+        "tooltip": "",
+        "group": "345bee42ad8f58a0",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 200,
+        "y": 720,
+        "wires": [
+            [
+                "ad05e03f85e8e604",
+                "b1b1312c65ee6395"
+            ]
+        ]
+    },
+    {
+        "id": "aef1cac81d13c71d",
+        "type": "ui_text_input",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "label": "온도 설정",
+        "tooltip": "",
+        "group": "345bee42ad8f58a0",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 200,
+        "y": 780,
+        "wires": [
+            [
+                "c08238541516c38a",
+                "045508949e411735"
+            ]
+        ]
+    },
+    {
+        "id": "b1b1312c65ee6395",
+        "type": "debug",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "045508949e411735",
+        "type": "debug",
+        "z": "b24e35e9ba78cd50",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "d016c9a6a6ddfebd",
+        "type": "ui_group",
+        "name": "장치 상태",
+        "tab": "42016cb26ef2df52",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3886e8e120c6524f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "10.74.122.11",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "345bee42ad8f58a0",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "42016cb26ef2df52",
+        "order": 1,
+        "disp": true,
+        "width": "4",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "766114f073e611c5",
+        "type": "ui_group",
+        "name": "온습도",
+        "tab": "42016cb26ef2df52",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "42016cb26ef2df52",
+        "type": "ui_tab",
+        "name": "온습도 탭",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

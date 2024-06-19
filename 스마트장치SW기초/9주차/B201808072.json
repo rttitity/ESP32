@@ -1,0 +1,48 @@
+[
+    {
+        "id": "3de26a4622722e4d",
+        "type": "ui_gauge",
+        "z": "c68f23ac9f078b61",
+        "name": "",
+        "group": "a204c543a5f1dc2d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1024",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 830,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "a204c543a5f1dc2d",
+        "type": "ui_group",
+        "name": "Value",
+        "tab": "9b053e7261c58d3d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9b053e7261c58d3d",
+        "type": "ui_tab",
+        "name": "Demo",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
